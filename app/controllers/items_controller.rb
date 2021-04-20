@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
     before_action :redirect_if_not_logged_in
     
+    def index
+        @items = Item.all
+    end
+    
+
     def new
         @item = Item.new
     end
@@ -12,6 +17,10 @@ class ItemsController < ApplicationController
         else
             render :new 
         end
+    end
+
+    def show
+        @item = Item.find(params[:id])
     end
 
     private 

@@ -17,6 +17,7 @@
     <% if logged_in? %>
     <%= link_to 'Post an Item', new_item_path %> | 
     <%= link_to 'Browse Items', items_path %> | 
+    <%= link_to 'Add a Comment', new_comment_path %> | 
     <%= link_to 'Logout', logout_path, method:'delete' %>
 
     <% else %>
@@ -24,7 +25,10 @@
     <%= link_to 'Log In', login_path %>
     <% end %>
   </div>
-
+  <br>
+  <div>
+    <%= @error %>
+  </div>
     <%= yield %>
   </body>
 </html>
