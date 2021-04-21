@@ -1,11 +1,11 @@
 <% if @item %>
-  <h1>Comments for <%= @item.title%></h1>
+  <h1>Bids for <%= @item.title%></h1>
 <% else %>
-  <h1>All Comments</h1>
+  <h1>All Bids</h1>
 <% end %>
 
 <ul>
-<% @comments.each do |c|%>
+<% @bids.each do |c|%>
   <li><%= c.user.username%> says "<%= c.content%>" about this post: <strong><%= link_to c.item.title, item_path(c.item_id) %></strong></li>
 <% end %>
 </ul>

@@ -1,0 +1,34 @@
+<% if @bid.item %>
+    <h1>Bid for <%= @bid.item.title %>! </h1>
+<% else %>
+    <h1>Add a Bid!</h1>
+<% end %>
+
+<% if @bid.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@bid.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+    <ul>
+      <% @bid.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<%= form_for([@bid.item, @bid]) do |f| %>
+
+    <% if !@bid.item %>
+        <%= f.label :item %>
+        <%= f.collection_select :item_id, Item.all, :id, :title%>
+    <% else %>
+        <%= f.hidden_field :item_id %>
+    <% end %>
+
+    <%= f.label :content %>
+    <%= f.text_field :content %>
+
+    <%= f.submit "Submit Bid" %>
+
+<% end %>

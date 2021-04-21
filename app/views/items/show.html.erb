@@ -3,10 +3,10 @@
 
 <div><%= @item.description %></div>
 
-<p><%= link_to 'See all comments', item_comments_path(@item) %>
-<p><%= link_to 'Add a new comment', new_item_comment_path(@item) %>
+<p><%= link_to 'See all bids', item_bids_path(@item) %>
+<p><%= link_to 'Add a new comment', new_item_bid_path(@item) %>
 
-<h3>Comments</h3><br>
-<% @item.comments.each do |c| %>
-    <li><strong><%= c.user.username %></strong> commented "<%= link_to c.content, item_comment_path(@item, c)%>" </li>
+<h3>Bids</h3><br>
+<% @item.bids.each do |c| %>
+    <li><strong><%= c.user.username %></strong>'s bid: "<%= link_to c.content, item_comment_path(@item, c)%>" </li>
 <% end %>

@@ -13,14 +13,14 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   resources :categories
-  resources :comments
+  resources :bids
   
   resources :users do 
     resources :items, only: [:new, :create, :index]
   end 
 
   resources :items do 
-    resources :comments
+    resources :bids
   end
   #root 'sessions#omniauth'
 

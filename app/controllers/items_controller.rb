@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
     def index
         @items = Item.all
         if params[:user_id] && @user = User.find_by_id(:user_id)
-            @comments = @user.comments
+            @bids = @user.bids
         else
             @error = "That item does not exist. Please try again." if params[:user_id]
             @items = Item.all 
