@@ -8,5 +8,5 @@
 
 <h3>Comments</h3><br>
 <% @item.comments.each do |c| %>
-    <li><strong><%= c.user.username %></strong> commented "<%= link_to c.content, comment_path(c)%>" </li>
+    <li><strong><%= c.user.username %></strong> commented "<%= link_to c.content, item_comment_path(@item, c)%>" </li>
 <% end %>

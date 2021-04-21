@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
         if params[:item_id] && @item = Item.find_by_id(:item_id)
             @comments = @item.comments
         else
-            @error = "That item does not exist. Please try again."
+            @error = "That item does not exist. Please try again." if params[:item_id]
             @comments = Comment.all 
         end
     end
@@ -17,7 +17,6 @@ class CommentsController < ApplicationController
         else
             @error = "That item does not exist. Default item is selected."
             @comment = Comment.new
-            @comment.build_item
         end
     end
     

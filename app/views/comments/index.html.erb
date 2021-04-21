@@ -1,4 +1,11 @@
-<%= display_header(@item) %>
+<% if @item %>
+  <h1>Comments for <%= @item.title%></h1>
+<% else %>
+  <h1>All Comments</h1>
+<% end %>
 
-
-<%= render partial: 'comment', collection: @comments %>
+<ul>
+<% @comments.each do |c|%>
+  <li><%= c.user.username%> says "<%= c.content%>" about this post: <strong><%= link_to c.item.title, item_path(c.item_id) %></strong></li>
+<% end %>
+</ul>

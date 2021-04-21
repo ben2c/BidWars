@@ -23,7 +23,7 @@
         <%= f.label :item %>
         <%= f.collection_select :item_id, Item.all, :id, :title%>
     <% else %>
-        <%= f.hidden_field :post_id %>
+        <%= f.hidden_field :item_id %>
     <% end %>
 
     <%= f.label :content %>
