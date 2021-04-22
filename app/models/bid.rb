@@ -1,6 +1,6 @@
-class Comment < ApplicationRecord
+class Bid < ApplicationRecord
     belongs_to :user
     belongs_to :item
 
-    #validates :content, presence :true
+    validates :price, presence: true, numericality: { only_integer: true }
 end

@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CommentsControllerTest < ActionDispatch::IntegrationTest
+class BidsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

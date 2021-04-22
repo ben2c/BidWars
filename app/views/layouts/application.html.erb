@@ -12,25 +12,30 @@
 
   <body>
 
-  <div>
-    <br>
-    <% if logged_in? %>
-    <%= link_to 'Home', user_path(current_user) %> |
-    <%= link_to 'Post an Item', new_item_path %> | 
-    <%= link_to 'Browse Items', items_path %> | 
-    <%= link_to 'My Posts', user_items_path(current_user) %> |
-    <%= link_to 'Bid on an Item', new_bid_path %> | 
-    <%= link_to 'Logout', logout_path, method:'delete' %>
+    <div>
+      <br>
+      <% if logged_in? %>
 
-    <% else %>
-    <%= link_to 'Sign Up', signup_path %> |
-    <%= link_to 'Log In', login_path %>
-    <% end %>
-  </div>
-  <br>
-  <div>
-    <%= @error %>
-  </div>
-    <%= yield %>
+      <%= link_to "Home", user_path(current_user)%> |
+      <%= link_to 'Post an Item', new_item_path %> | 
+      <%= link_to 'Browse Items', items_path %> | 
+      <%= link_to 'Bid on an Item', new_bid_path %> | 
+      <%= link_to "My Posts", user_items_path(current_user) %> |
+      <%= link_to 'Logout', logout_path, method:'delete' %>
+
+      <% else %>
+      <%= link_to 'Sign Up', signup_path %> |
+      <%= link_to 'Log In', login_path %>
+      <% end %>
+    </div>
+    <br>
+    <div>
+      <% if flash[:message] %>
+        <%= flash[:message]%>
+
+      <% end %>
+      <%= @error %>
+    </div>
+      <%= yield %>
   </body>
 </html>

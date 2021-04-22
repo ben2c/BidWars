@@ -1,4 +1,4 @@
-module CommentsHelper
+module BidsHelper
 
     def display_item_fields(i)
         if params[:item_id]
@@ -12,9 +12,9 @@ module CommentsHelper
 
     def display_header(item)
         if item
-            tag.h1("All the Comments for #{item.title}")
+            tag.h1("Current for #{item.title}")
         else
-            tag.h1("All the Comments")
+            tag.h1("Current Bids")
         end
     end
 end

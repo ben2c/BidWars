@@ -12,16 +12,18 @@ Rails.application.routes.draw do
   #logout
   delete '/logout' => 'sessions#destroy'
 
-  resources :categories
-  resources :bids
-  
-  resources :users do 
-    resources :items, only: [:new, :create, :index]
-  end 
-
   resources :items do 
     resources :bids
   end
+
+  resources :categories, only:[:index, :show]
+  resources :bids
+  
+  resources :users do 
+    resources :items, shallow: true
+  end 
+
+
   #root 'sessions#omniauth'
 
   #get '/auth/google_oath2/callback', to: 'sessions#omniauth'
