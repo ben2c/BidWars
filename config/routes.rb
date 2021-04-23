@@ -26,8 +26,8 @@ Rails.application.routes.draw do
 
   #root 'sessions#omniauth'
 
-  #get '/auth/google_oath2/callback', to: 'sessions#omniauth'
-  #get '/auth/:provider/callback', to: 'sessions#omniauth' #dynamic for whatever provider sign in
+  #get '/auth/google_oath2/callback', to: 'sessions#omniauth' #static for google
+  get '/auth/:provider/callback', to: 'sessions#google' #dynamic for whatever provider sign in
 
 
 end

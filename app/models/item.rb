@@ -3,4 +3,7 @@ class Item < ApplicationRecord
   #belongs_to :category
   has_many :bids
   has_many :users, through: :bids
+
+  scope :alpha, -> { order(:title) }
+  scope :highest_bidder, -> {where(price: self.maximum(:price))}
 end
