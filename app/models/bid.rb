@@ -4,6 +4,6 @@ class Bid < ApplicationRecord
 
     validates :price, presence: true, numericality: { only_integer: true }
 
-    scope :alpha, -> { order(:bid) }
-    scope :highest_bidder, -> {where(price: self.maximum(:price))}
+    #scope :alpha, -> { order(:bid) }
+    scope :highest_bidder, -> {order(:price).reverse_order}
 end

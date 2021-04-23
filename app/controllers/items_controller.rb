@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
 
     def show
         @item = Item.find(params[:id])
-        @bids = Item.highest_bidder
+        #@bids = Item.highest_bidder
     end
 
     private 

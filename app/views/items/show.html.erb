@@ -3,12 +3,10 @@
 
 <div><%= @item.description %></div>
 
-<p><%= link_to 'See all bids', item_bids_path(@item) %>
+<p><%= link_to 'See Highest Bidders', item_bids_path(@item) %>
 <p><%= link_to 'Add a new bid', new_item_bid_path(@item) %>
 
-<h3>Bids</h3>
+<h3>Bids Timeline</h3>
 <% @item.bids.each do |c| %>
     <li><strong><%= c.user.username %></strong>'s bid: "<%= link_to c.price, item_bid_path(@item, c)%>" </li>
 <% end %>
-
-<h3><% @item.highest_bidder %></h3>

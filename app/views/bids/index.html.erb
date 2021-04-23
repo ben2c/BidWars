@@ -1,7 +1,7 @@
 <% if @item %>
   <h1>Bids for <%= @item.title%></h1>
 <% else %>
-  <h1>All Bids</h1>
+  <h1>Highest Bidders</h1>
 <% end %>
 
 <ul>
@@ -9,3 +9,4 @@
   <li><%= c.user.username%> bidded $<%= c.price%> on <strong><%= link_to c.item.title, item_path(c.item_id) %></strong></li>
 <% end %>
 </ul>
+

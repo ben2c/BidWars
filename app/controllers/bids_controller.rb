@@ -3,10 +3,11 @@ class BidsController < ApplicationController
     
     def index
         if params[:item_id] && @item = Item.find_by_id(:item_id)
-            @bids = @item.bids
+            @bids = @item.bids.highest_bidder
         else
             @error = "That item does not exist. Please try again." if params[:item_id]
-            @bids = Bid.all 
+            @bids = Bid.highest_bidder
+
         end
     end
 

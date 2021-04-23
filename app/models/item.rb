@@ -5,5 +5,5 @@ class Item < ApplicationRecord
   has_many :users, through: :bids
 
   scope :alpha, -> { order(:title) }
-  scope :highest_bidder, -> {where(price: self.maximum(:price))}
+
 end

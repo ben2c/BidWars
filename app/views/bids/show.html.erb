@@ -1,3 +1,4 @@
-<h2><%= @bid.content %> - <%= @bid.user.username %> </h2>
+<h3><%= @bid.user.username %> bidded $<%= @bid.price %></h3>
 
-<h4>The item is located here: <%= link_to @bid.item.title, item_path(@bid.item_id) %> </h4>
+<h4>Bid is for this Item: <%= link_to @bid.item.title, item_path(@bid.item_id) %> </h4>
+
