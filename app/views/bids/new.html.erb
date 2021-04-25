@@ -4,17 +4,7 @@
     <h1>Add a Bid!</h1>
 <% end %>
 
-<% if @bid.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@bid.errors.count, "error") %> prohibited this item from being saved:</h2>
-
-    <ul>
-      <% @bid.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "layouts/errors", locals: {object: @bid} %>
 
 
 <%= form_for([@bid.item, @bid]) do |f| %>

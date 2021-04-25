@@ -1,5 +1,8 @@
 <h1>Post an Item</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @item} %>
+
+
 <%= form_for(@item) do |f| %>
 
     <%= f.label :title %>

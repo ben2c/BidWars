@@ -7,4 +7,7 @@ class User < ApplicationRecord
     has_many :bids
     has_many :posted_items, through: :bids,
         source: :item
+
+    validates :username, :email, presence: true
+
 end

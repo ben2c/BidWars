@@ -2,9 +2,8 @@ class ItemsController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def index
-        @items = Item.all
-        if params[:user_id] && @user = User.find_by_id(:user_id)
-            @bids = @user.bids.alpha
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @items = @user.items.alpha
         else
             @error = "That item does not exist. Please try again." if params[:user_id]
             @items = Item.alpha
