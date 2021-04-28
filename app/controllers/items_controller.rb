@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_item, only: [:edit, :update, :show, :destroy]
     
     def index
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -10,11 +11,9 @@ class ItemsController < ApplicationController
         end
     end
     
-    def delete
-        @item = Item.find_by(id: params[:id])
-        @item.delete
- 
-        redirect '/items'
+    def destroy
+        @item.destroy
+        redirect_to items_path
     end
 
     def new
@@ -31,12 +30,10 @@ class ItemsController < ApplicationController
     end
 
     def edit
-        set_item
         redirect_to items_path if !@item || @item.user != current_user
     end
 
     def update
-        set_item
         redirect_to items_path if !@item || @item.user != current_user
        if @item.update(item_params)
          redirect_to item_path(@item)
@@ -46,7 +43,6 @@ class ItemsController < ApplicationController
      end
 
     def show
-        set_item
     end
 
     private 

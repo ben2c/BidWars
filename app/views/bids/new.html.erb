@@ -1,9 +1,10 @@
 <% if @bid.item %>
     <h1>Bid for <%= @bid.item.title %>! </h1>
 <% else %>
-    <h1>Add a Bid!</h1>
-    <h4>*Bids cannot be changed! Please check bid amount before submitting*</h4>
+    <h1>Bid on an item</h1>
+    <p>*Bids cannot be changed after submitting! Please confirm item and amount before bidding.*</p>
 <% end %>
+<br>
 
 <%= render partial: "layouts/errors", locals: {object: @bid} %>
 

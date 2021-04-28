@@ -4,7 +4,8 @@
 <br>
 
 <% if @item.user == current_user %>
-<h4><%= link_to "Edit Item", edit_item_path(@item)%></h4>
+<h4><%= link_to "Edit", edit_item_path(@item)%></h4>
+<h4><%= link_to 'Delete', item_path(@item), method: 'delete', data: { confirm: 'Are you sure you want to remove this item?'}%></h4>
 <% end %>
 
 <h4><%= link_to 'See Highest Bidders', item_bids_path(@item) %></h4>
