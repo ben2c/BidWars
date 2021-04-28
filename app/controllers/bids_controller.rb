@@ -16,7 +16,7 @@ class BidsController < ApplicationController
         if params[:item_id] && @item = Item.find_by_id(params[:item_id])
             @bid = @item.bids.build
         else
-            @error = "That item does not exist. Default item is selected."
+            #@error = "That item does not exist. Default item is selected."
             @bid = Bid.new
         end
     end
@@ -32,19 +32,6 @@ class BidsController < ApplicationController
 
     def show
         @bid = Bid.find_by(id: params[:id])
-    end
-
-    def edit
-        @bid = Bid.find_by(id: params[:id])
-    end
-
-    def update
-        @bid = Bid.find_by(id: params[:id])
-        if @bid.update(bid_params)
-            redirect_to bid_path(@bid)
-        else
-            redirect :edit 
-        end
     end
 
     private 

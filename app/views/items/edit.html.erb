@@ -1,1 +1,17 @@
+<h1>Edit <%= @item.title%>!</h1>
+
 <%= render partial: "layouts/errors", locals: {object: @item} %>
+
+<%= form_for(@item) do |f|%>
+
+  <br>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <br>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+
+
+  <%= f.submit %>
+
+<% end %>

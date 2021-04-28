@@ -1,12 +1,21 @@
-<h1><%= @item.title %></h1>
-<h2>Posted by: <%= @item.user.username %></h2>
+<h1>Item for Sale: <%= @item.title %></h1>
+<div>Description: <%= @item.description %></div>
+<h4>Posted by: <%= @item.user.username %></h4>
+<br>
 
-<div><%= @item.description %></div>
+<% if @item.user == current_user %>
+<h4><%= link_to "Edit Item", edit_item_path(@item)%></h4>
+<% end %>
 
-<p><%= link_to 'See Highest Bidders', item_bids_path(@item) %>
-<p><%= link_to 'Add a new bid', new_item_bid_path(@item) %>
+<h4><%= link_to 'See Highest Bidders', item_bids_path(@item) %></h4>
+<h4><%= link_to 'Add a new bid', new_item_bid_path(@item) %> </h4>
+<br>
 
 <h3>Bids Timeline</h3>
-<% @item.bids.each do |c| %>
-    <li><strong><%= c.user.username %></strong>'s bid: "<%= link_to c.price, item_bid_path(@item, c)%>" </li>
+<% if !@item.bids.blank? %>
+    <% @item.bids.each do |c| %>
+        <li><strong><%= c.user.username %></strong>'s bid: "<%= link_to c.price, item_bid_path(@item, c)%>" </li>
+    <% end %>
+<% else %>
+    <h4>No bids at the moment</h4>
 <% end %>

@@ -10,6 +10,12 @@ class ItemsController < ApplicationController
         end
     end
     
+    def delete
+        @item = Item.find_by(id: params[:id])
+        @item.delete
+ 
+        redirect '/items'
+    end
 
     def new
         @item = Item.new
@@ -24,9 +30,23 @@ class ItemsController < ApplicationController
         end
     end
 
+    def edit
+        set_item
+        redirect_to items_path if !@item || @item.user != current_user
+    end
+
+    def update
+        set_item
+        redirect_to items_path if !@item || @item.user != current_user
+       if @item.update(item_params)
+         redirect_to item_path(@item)
+       else
+         render :edit
+       end
+     end
+
     def show
-        @item = Item.find(params[:id])
-        #@bids = Item.highest_bidder
+        set_item
     end
 
     private 
@@ -35,4 +55,8 @@ class ItemsController < ApplicationController
         params.require(:item).permit(:title, :description)
     end
     
+    def set_item
+        @item = Item.find_by_id(params[:id])
+    end
+
 end
