@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-
+    <link ref="stylesheets" href="/bootstrap.min.css">
     <link href="/docs/5.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-
     <title>BidWars</title>
 
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -15,26 +14,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
 
+  <body>
     <div>
       <br>
       <% if logged_in? %>
 
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-        </a>
           <%= link_to "Home", user_path(current_user) %> |
           <%= link_to 'Post an Item', new_item_path %> | 
           <%= link_to 'Browse Items', items_path %> | 
           <%= link_to 'Bid on an Item', new_bid_path %> | 
           <%= link_to "My Posts", user_items_path(current_user) %> |
           <%= link_to 'Logout', logout_path, method:'delete' %>
-
-      </div>
-    </div>
 
       <% else %>
       <%= link_to 'Sign Up for BidWars Account', signup_path %> |

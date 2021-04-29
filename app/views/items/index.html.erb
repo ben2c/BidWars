@@ -1,16 +1,9 @@
 <%= index_display_header %>
 
 <% if @items.blank? %>
-
     <h3>No posted items yet. Post an item <%= link_to "here", new_item_path%></h3>
-
 <% else %>
-    <ul>
-        <% @items.each do |item| %>
-            <li><%= link_to item.title, item_path(item) %> </li>
-        <% end %>
-    </ul>
-
+    <%= render partial: "items", locals: {items: @items} %>
 <% end %>
 
 

@@ -15,7 +15,7 @@
 <h3>Bids Timeline</h3>
 <% if !@item.bids.blank? %>
     <% @item.bids.each do |c| %>
-        <li><strong><%= c.user.username %></strong>'s bid: "<%= link_to c.price, item_bid_path(@item, c)%>" </li>
+        <li><strong><%= c.user.username %></strong> bidded: "<%= link_to c.price, item_bid_path(@item, c)%>" </li>
     <% end %>
 <% else %>
     <h4>No bids at the moment</h4>
