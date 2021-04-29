@@ -4,7 +4,6 @@ What models?
 
 Item
     -belongs_to :user
-    -belongs_to :category
     -has_many :bids
     -title
     -description
@@ -20,8 +19,4 @@ Bid
     -belongs_to :user
     -belongs_to :item
     -content
-
-Categories
-    -type
-    -has_many :items
 

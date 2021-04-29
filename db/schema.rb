@@ -22,20 +22,12 @@ ActiveRecord::Schema.define(version: 2021_04_21_221854) do
     t.index ["user_id"], name: "index_bids_on_user_id"
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.integer "user_id"
-    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["title"], name: "index_items_on_title"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
@@ -52,6 +44,5 @@ ActiveRecord::Schema.define(version: 2021_04_21_221854) do
 
   add_foreign_key "bids", "items"
   add_foreign_key "bids", "users"
-  add_foreign_key "items", "categories"
   add_foreign_key "items", "users"
 end

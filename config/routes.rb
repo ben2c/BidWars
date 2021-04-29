@@ -16,7 +16,6 @@ Rails.application.routes.draw do
     resources :bids
   end
 
-  resources :categories, only:[:index, :show]
   resources :bids
   
   resources :users do 
