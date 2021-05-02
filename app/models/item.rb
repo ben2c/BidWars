@@ -1,6 +1,7 @@
 class Item < ApplicationRecord
   belongs_to :user
-  has_many :bids
+  belongs_to :categories
+  has_many :bids, dependent: :destroy
   has_many :users, through: :bids
 
 
